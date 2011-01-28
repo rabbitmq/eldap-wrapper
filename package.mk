@@ -15,12 +15,12 @@ define package_targets
 $(EBIN_DIR)/eldap.beam: $(CLONE_DIR)/src/ELDAPv3.hrl
 
 $(EBIN_DIR)/ELDAPv3.beam $(CLONE_DIR)/src/ELDAPv3.hrl: $(CLONE_DIR)/src/ELDAPv3.asn
-	@mkdir -p $(GENERATED_DIR)
+	@mkdir -p $(GENERATED_DIR) $(EBIN_DIR)
 	$(ERLC) $(ERLC_OPTS) $(GLOBAL_ERLC_OPTS) -o $(GENERATED_DIR) $$<
 	mv $(GENERATED_DIR)/ELDAPv3.beam $(EBIN_DIR)
 	mv $(GENERATED_DIR)/ELDAPv3.hrl $(CLONE_DIR)/src
 
 $(PACKAGE_DIR)+clean::
-	rm -rf $(GENERATED_DIR)
+	rm -rf $(GENERATED_DIR) $(EBIN_DIR)
 
 endef
