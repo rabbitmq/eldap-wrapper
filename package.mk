@@ -4,7 +4,7 @@ UPSTREAM_GIT:=https://github.com/etnt/eldap.git
 UPSTREAM_REVISION:=e309de4db4b78d67d623
 WRAPPER_PATCHES:=eldap-appify.patch
 
-UPSTREAM_APP_FILE:=$(CLONE_DIR)/ebin/$(APP_NAME).app
+ORIGINAL_APP_FILE:=$(CLONE_DIR)/ebin/$(APP_NAME).app
 
 EBIN_BEAMS += $(EBIN_DIR)/ELDAPv3.beam
 
