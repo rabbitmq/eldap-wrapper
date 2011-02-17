@@ -6,19 +6,18 @@ WRAPPER_PATCHES:=eldap-appify.patch
 
 ORIGINAL_APP_FILE:=$(CLONE_DIR)/ebin/$(APP_NAME).app
 
-EBIN_BEAMS += $(EBIN_DIR)/ELDAPv3.beam
-
 GENERATED_DIR:=$(CLONE_DIR)/generated
+ERLC_OPTS:=-I $(GENERATED_DIR)
+INCLUDE_HRLS+=$(GENERATED_DIR)/ELDAPv3.hrl
+EBIN_BEAMS+=$(GENERATED_DIR)/ELDAPv3.beam
 
 define package_targets
 
-$(EBIN_DIR)/eldap.beam: $(CLONE_DIR)/src/ELDAPv3.hrl
+$(CLONE_DIR)/src/ELDAPv3.asn: $(CLONE_DIR)/.done
 
-$(EBIN_DIR)/ELDAPv3.beam $(CLONE_DIR)/src/ELDAPv3.hrl: $(CLONE_DIR)/src/ELDAPv3.asn
-	@mkdir -p $(GENERATED_DIR) $(EBIN_DIR)
+$(GENERATED_DIR)/ELDAPv3.hrl $(GENERATED_DIR)/ELDAPv3.beam: $(CLONE_DIR)/src/ELDAPv3.asn
+	@mkdir -p $(GENERATED_DIR)
 	$(ERLC) $(ERLC_OPTS) $(GLOBAL_ERLC_OPTS) -o $(GENERATED_DIR) $$<
-	mv $(GENERATED_DIR)/ELDAPv3.beam $(EBIN_DIR)
-	mv $(GENERATED_DIR)/ELDAPv3.hrl $(CLONE_DIR)/src
 
 $(PACKAGE_DIR)+clean::
 	rm -rf $(GENERATED_DIR) $(EBIN_DIR)
