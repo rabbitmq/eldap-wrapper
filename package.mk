@@ -11,7 +11,7 @@ ERLC_OPTS:=-I $(GENERATED_DIR)
 INCLUDE_HRLS+=$(GENERATED_DIR)/ELDAPv3.hrl
 EBIN_BEAMS+=$(GENERATED_DIR)/ELDAPv3.beam
 
-define package_targets
+define package_rules
 
 $(CLONE_DIR)/src/ELDAPv3.asn: $(CLONE_DIR)/.done
 
