@@ -1,5 +1,6 @@
 APP_NAME:=eldap
 
+RELEASABLE:=true
 UPSTREAM_GIT:=https://github.com/etnt/eldap.git
 UPSTREAM_REVISION:=e309de4db4b78d67d623
 WRAPPER_PATCHES:=eldap-appify.patch remove-eldap-fsm.patch
