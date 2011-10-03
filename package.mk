@@ -23,4 +23,8 @@ $(GENERATED_DIR)/ELDAPv3.hrl $(GENERATED_DIR)/ELDAPv3.beam: $(CLONE_DIR)/src/ELD
 $(PACKAGE_DIR)+clean::
 	rm -rf $(GENERATED_DIR) $(EBIN_DIR)
 
+# This rule is run *before* the one in do_package.mk
+$(PLUGINS_SRC_DIST_DIR)/$(PACKAGE_DIR)/.srcdist_done::
+	cp $(CLONE_DIR)/LICENSE $(PACKAGE_DIR)/LICENSE-MIT-eldap
+
 endef
