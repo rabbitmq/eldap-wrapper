@@ -2,7 +2,7 @@ APP_NAME:=eldap
 
 UPSTREAM_GIT:=https://github.com/etnt/eldap.git
 UPSTREAM_REVISION:=e309de4db4b78d67d623
-WRAPPER_PATCHES:=eldap-appify.patch remove-eldap-fsm.patch eldap-no-ssl-seed.patch
+WRAPPER_PATCHES:=eldap-appify.patch remove-eldap-fsm.patch eldap-no-ssl-seed.patch remove-ietf-doc.patch
 
 ORIGINAL_APP_FILE:=$(CLONE_DIR)/ebin/$(APP_NAME).app
 DO_NOT_GENERATE_APP_FILE=true
