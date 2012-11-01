@@ -1,6 +1,6 @@
 APP_NAME:=eldap
 
-UPSTREAM_GIT:=https://github.com/etnt/eldap.git
+UPSTREAM_GIT:=https://github.com/rabbitmq/eldap.git
 UPSTREAM_REVISION:=e309de4db4b78d67d623
 WRAPPER_PATCHES:=eldap-appify.patch remove-eldap-fsm.patch eldap-no-ssl-seed.patch remove-ietf-doc.patch
 
